@@ -79,7 +79,7 @@ ip_address addr("10.0.0.51");
 ip_address mask(24, ip_address::ipv4);
 assert(mask.prefix_len() == 24);
 
-ip_address net = adds & mask;
+ip_address net = addr & mask;
 assert(net.to_string() == "10.0.0.0");
 
 ip_address host("0.0.0.51");
