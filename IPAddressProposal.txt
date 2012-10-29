@@ -197,11 +197,11 @@ Content
 
   class ip_address 
   {  public:
-    union addr    {      struct      {        unsigned char& operator [] (unsigned int index);
+    union addr    {      struct      {        unsigned char operator [] (unsigned int index);
           /// Access address byte at position index.
           /// Throws std::range_error if index is larger than 3.
       private:        unsigned char byte[4];
-      } v4;      struct      {        unsigned char& operator [] (unsigned int index)
+      } v4;      struct      {        unsigned char operator [] (unsigned int index)
           /// Access address byte at position index.
           /// Throws std::range_error if index is larger than 15.
       private:        unsigned char byte[16];      } v6;    };
