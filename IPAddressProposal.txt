@@ -228,11 +228,11 @@ Content
 
     ip_address(ip_address&& addr) noexcept;      /// Creates an ip_address by moving another one.
 
-    ip_address& operator=(ip_address addr);
-      /// Copies addr to this address.
+    ip_address& operator=(const ip_address& addr);
+      /// Assigns addr to this address by copying.
 
     ip_address& operator=(ip_address&& addr) noexcept;
-      /// Moves addr to this address.
+      /// Assigns addr to this address by moving.
     ~ip_address() noexcept;      /// Destroys the IPAddress.    ip_address& operator = (const ip_address& addr);      /// Assigns an IPAddress.		    void swap(ip_address& addr);      /// Swaps the IPAddress with another one.    const addr& address() const;
       /// Returns const reference to address bytes;
       /// addr::v4 and addr::v6:: operator[] is used to access address bytes.
