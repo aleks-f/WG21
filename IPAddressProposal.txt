@@ -1,7 +1,7 @@
 C++ Internet Protocol Classes
 
 Document Number: N3477=12-0167
-Date:            2012-10-xx
+Date:            2012-10-28
 Authors:         Aleksandar Fabijanic <alex AT pocoproject.org>
                  Günter Obiltschnig <guenter.obiltschnig AT appinf.com>
 
@@ -31,7 +31,7 @@ Content
 1. Revision History
 
   - Oct 10 2012: created
-  - Oct xx 2012: apply changes from SG4 meeting in Portland, OR
+  - Oct 28 2012: apply suggested changes from SG4 meeting in Portland, OR
 
 2. Motivation and Scope
 
