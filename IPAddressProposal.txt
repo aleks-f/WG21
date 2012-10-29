@@ -287,8 +287,7 @@ Content
       /// Performs a bitwise XOR operation and returns result.
     ip_address operator ~ () const;
       /// Performs a bitwise NOT operation on this IP address and returns result.		    static ip_address parse(const std::string& addr);      /// Creates an IPAddress from the string containing      /// an IP address in presentation format (dotted decimal      /// for IPv4, hex string for IPv6).      /// Depending on the format of addr, either an IPv4 or      /// an IPv6 address is created.      /// See to_string() for details on the supported formats.      /// Throws std::runtime_exception if the address cannot be parsed.    static bool try_parse(const std::string& addr, IPAddress& result);      /// Tries to interpret the given address string as an      /// IP address in presentation format (dotted decimal      /// for IPv4, hex string for IPv6).      /// Returns true and stores the IPAddress in result if the      /// string contains a valid address.      /// Returns false with result content unspecified if string
-      /// was not valid.  private:
-      addr _address;
+      /// was not valid.
   };
   }} // namespace std::net
 
