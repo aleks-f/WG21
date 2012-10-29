@@ -210,9 +210,8 @@ Content
     enum ipv6_scope      /// IPv6 scopes. For unicast and anycast addresses,
       /// only link_local, site_local and global apply.
       /// All values apply to multicast addresses.
-      /// Unspecified (wildcard) IP address will have no
-      /// scope unless it is explicitly specified by calling
-      /// set_scope(ipv6_scope) member.    {      // reserved           = 0x0,         interface_local    = 0x1,
+      /// Unspecified (wildcard) IP address has no
+      /// scope.    {      // reserved           = 0x0,         interface_local    = 0x1,
          link_local         = 0x2,
       // reserved           = 0x3,
          admin_local        = 0x4,
