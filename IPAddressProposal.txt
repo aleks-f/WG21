@@ -183,12 +183,7 @@ Content
   // note compression and lowercasing:
   assert (ip6.to_string() == "2001:db8:123:1::1");
   ip_address::addr addr6 = ip6.address();  assert (addr6.v6[0x0] == 0x20);  assert (addr6.v6[0x1] == 0x01);  assert (addr6.v6[0x2] == 0x0D);  assert (addr6.v6[0x3] == 0xB8);  assert (addr6.v6[0x4] == 0x01);  assert (addr6.v6[0x5] == 0x23);  assert (addr6.v6[0x6] == 0x00);  assert (addr6.v6[0x6] == 0x01);  assert (addr6.v6[0x7] == 0x00);
-  // ... zeros  assert (addr6.v6[0xE] == 0x00);  assert (addr6.v6[0xF] == 0x01);
-
-  ip_address ia("::ffff:192.0.2.1");
-  assert (ia.family() == ip_address::ipv6);
-  assert (ia.to_string() == "::ffff:192.0.2.1");
-  assert (ia.prefix_length() == 96);  
+  // ... zeros  assert (addr6.v6[0xE] == 0x00);  assert (addr6.v6[0xF] == 0x01);  
 
 4.2. Header <ip_address> synopsis
 
@@ -280,13 +275,20 @@ Content
     bool operator >= (const ip_address& addr) const;
       /// Returns true if this IP address is greater than or equal to addr.
     ip_address operator & (const ip_address& addr) const;
-      /// Performs a bitwise ANd operation and returns result.
+      /// Performs a bitwise AND operation and returns result.
     ip_address operator | (const ip_address& addr) const;
       /// Performs a bitwise OR operation and returns result.
     ip_address operator ^ (const ip_address& addr) const;
       /// Performs a bitwise XOR operation and returns result.
     ip_address operator ~ () const;
-      /// Performs a bitwise NOT operation on this IP address and returns result.		    static ip_address parse(const std::string& addr);      /// Creates an IPAddress from the string containing      /// an IP address in presentation format (dotted decimal      /// for IPv4, hex string for IPv6).      /// Depending on the format of addr, either an IPv4 or      /// an IPv6 address is created.      /// See to_string() for details on the supported formats.      /// Throws std::runtime_exception if the address cannot be parsed.    static bool try_parse(const std::string& addr, IPAddress& result);      /// Tries to interpret the given address string as an      /// IP address in presentation format (dotted decimal      /// for IPv4, hex string for IPv6).      /// Returns true and stores the IPAddress in result if the      /// string contains a valid address.      /// Returns false with result content unspecified if string
+      /// Performs a bitwise NOT operation on this IP address and 
+      /// returns result.
+    ip_address operator & (const prefix& addr) const;
+      /// Performs a bitwise AND operation and returns result.
+    ip_address operator | (const prefix& addr) const;
+      /// Performs a bitwise OR operation and returns result.
+    ip_address operator ^ (const prefix& addr) const;
+      /// Performs a bitwise XOR operation and returns result.		    static ip_address parse(const std::string& addr);      /// Creates an IPAddress from the string containing      /// an IP address in presentation format (dotted decimal      /// for IPv4, hex string for IPv6).      /// Depending on the format of addr, either an IPv4 or      /// an IPv6 address is created.      /// See to_string() for details on the supported formats.      /// Throws std::runtime_exception if the address cannot be parsed.    static bool try_parse(const std::string& addr, IPAddress& result);      /// Tries to interpret the given address string as an      /// IP address in presentation format (dotted decimal      /// for IPv4, hex string for IPv6).      /// Returns true and stores the IPAddress in result if the      /// string contains a valid address.      /// Returns false with result content unspecified if string
       /// was not valid.
   };
   }} // namespace std::net
