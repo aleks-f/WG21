@@ -44,6 +44,7 @@ public:
 	{
 		_address = addrv4.to_string();
 		std::cout << "assign IPv4 to IPv4" << std::endl;
+		return *this;
 	}
 
 	const address_v4& operator = (const address_v6& addrv6);

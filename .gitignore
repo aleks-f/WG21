@@ -73,4 +73,5 @@ debug_static/
 bin/
 bin64/
 pocomsg.h
+*sdf
 
